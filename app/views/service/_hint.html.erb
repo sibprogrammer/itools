@@ -1,0 +1,9 @@
+<% if hints %>
+  <div class="hint">
+    <ul>
+      <% hints.each do |hint| %>
+        <li><%= h(hint) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

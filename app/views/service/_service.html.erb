@@ -1,0 +1,8 @@
+<%= render :partial => "hint", :locals => { :hints => page.hints } %>
+
+<% form_tag '/service/' + page.name, :onsubmit => "Tools.formHandler(this); return false;" do -%>
+  <div class="row">Code:</div>
+  <div class="row"><textarea name="code" cols="120" rows="10" ></textarea></div>
+  <div class="row"><%= submit_tag 'Execute' %></div>
+  <div class="row output-wrapper"></div>
+<% end -%>
