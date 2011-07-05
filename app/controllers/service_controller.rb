@@ -70,7 +70,7 @@ class ServiceController < ApplicationController
     filename = '/tmp/itools_' + get_random_hash + extension
     File.open(filename, 'w') { |f| f.write(code) }
     logger.info("Command (IP #{request.remote_ip}): #{command} #{filename}")
-    @output = `sudo -u nobody env TERM=xterm #{command} #{filename} 2>&1`
+    @output = `sudo -u nobody env TERM=xterm timelimit -t 2 -T 2 #{command} #{filename} 2>&1`
     File.delete(filename)
     
     render :json => { :status => $?.success?, :output => @output }
